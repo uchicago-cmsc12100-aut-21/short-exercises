@@ -14,8 +14,10 @@ def peep(p, e):
     Returns: True if peep = pp^e, False otherwise
     """
 
-    ### EXERCISE 1 -- Replace pass with your code
-    pass
+    if (p * 1000 + e * 100 + e * 10 + p) == (p * 10+ p)**3:
+        return True
+    else:
+        return False
 
 def has_more(lst1, lst2, target):
     """
@@ -29,8 +31,24 @@ def has_more(lst1, lst2, target):
     Returns: True if lst1 contains more of target, False otherwise
     """
 
-    ### EXERCISE 2 -- Replace pass with your code
-    pass
+    length1 = []
+    length2 = []
+    for i in lst1:
+        if i == target:
+            length1.append(i)
+        else:
+            length1.append(i)
+            length1.pop()
+    for n in lst2:
+        if n == target:
+            length2.append(n)
+        else:
+            length2.append(n)
+            length2.pop()
+    if len(length1) > len(length2):
+        return True
+    else:
+        return False
 
 def make_star_strings(lst):
     """
@@ -41,9 +59,11 @@ def make_star_strings(lst):
 
     Returns: A list of strings of stars (*)
     """
-
-    ### EXERCISE 3 -- Replace pass with your code
-    pass
+    
+    star = []
+    for i in lst:
+        star.append("*"*i)
+    return star
 
 def replace(lst, replacee, replacer):
     """
@@ -57,8 +77,10 @@ def replace(lst, replacee, replacer):
     Returns: None, modifies lst in-place
     """
 
-    ### EXERCISE 4 -- Replace pass with your code
-    pass
+    for i in lst:
+        if lst[i-1] == replacee:
+            lst[i-1] = replacer
+    return lst
 
 def rows_and_columns_contain(lst, target):
     """
@@ -72,5 +94,12 @@ def rows_and_columns_contain(lst, target):
       target, False otherwise
     """
 
-    ### EXERCISE 5 -- Replace pass with your code
-    pass
+    for i in lst:
+        if target in i:
+            for n in i:
+                if i[n] == target:
+                    return True
+                else:
+                    return False
+        else:
+            return False
