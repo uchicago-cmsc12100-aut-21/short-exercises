@@ -142,6 +142,8 @@ def check_board(actual, expected_board, expected_num_ships, recreate_msg):
     check_attribute_type(actual.num_ships,
                          expected_num_ships,
                          recreate_msg)
+    check_equals(actual.num_ships, expected_num_ships, recreate_msg)
+
     
     check_boards_same(actual.board, expected_board, recreate_msg)
     
@@ -159,7 +161,7 @@ def board_helper(file_prefix, add_fleet=True):
 
     if add_fleet:
         recreate_msg += "    config = json.load(open('{}'))\n"
-        recreate_msg += "    board.deplot_fleet(config['ships'])"
+        recreate_msg += "    board.deploy_fleet(config['ships'])\n"
         recreate_msg = recreate_msg.format(filename)
         actual.deploy_fleet(config["ships"])
 
@@ -216,10 +218,8 @@ def test_play_move(test_num):
     filename = "tests/moves_{}.json".format(test_num)
     config, board, recreate_msg = board_helper("moves_{}".format(test_num))
 
-    recreate_msg += "    board = se4.Board(config['ships'])\n"
-
     for loc, expected in zip(config["moves"], config["expected_results"]):
-        recreate_msg += "    board.play({})".format(loc)
+        recreate_msg += "    board.play_move({})".format(loc)
         actual = board.play_move(loc)
         check_none(actual, recreate_msg + "    # Failed here")
         check_type(actual, expected, recreate_msg  + "    # Failed here")
