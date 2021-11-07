@@ -106,7 +106,7 @@ def test_compute_matching_values():
 
     check_none(result, recreate_msg)
     check_is_ndarray(result, recreate_msg)
-    check_dtype(result, np.bool, recreate_msg)
+    check_dtype(result, bool, recreate_msg)
         
     
     check_array_equal(result, np.array([True, False, True, False]),
@@ -124,7 +124,7 @@ def test_compute_matching_indices():
 
     check_none(result, recreate_msg)
     check_is_ndarray(result, recreate_msg)
-    check_dtype(result, np.int, recreate_msg)
+    check_dtype(result, int, recreate_msg)
         
     
     check_array_equal(result, np.array([0, 2]),
