@@ -75,7 +75,7 @@ def check_dtype(array, expected, recreate_msg=None):
 def check_array_equal(actual, expected, recreate_msg):
     msg = "The function returned the wrong array"
     msg += " Expected array: {}\n".format(expected)
-    msg += " Actual returned array: {}\n".format(expected)
+    msg += " Actual returned array: {}\n".format(actual)
 
     if recreate_msg is not None:
         msg += "\n" + recreate_msg
